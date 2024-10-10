@@ -1,3 +1,4 @@
+
 .navbar {
     background-color: #1b0075;
     padding: 1rem 2rem;
@@ -5,7 +6,7 @@
     height: 100px;
 }
 
-.title {
+.title-navbar {
     color: #ffffff;
     font-size: 30px;
     font-weight: bold;
@@ -30,17 +31,136 @@
     color: #1b0075;
     background-color: #f8f8fd;
     border-radius: 50px;
-    border: 6px solid #370a99;
-    box-shadow: 0px 8px #0d0038;
+    border: 6px solid #eacaf1;
+    box-shadow: 0px 8px #1b0075;
     margin: 10px;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 19px;
   }
+
   .button:active {
     position: relative;
     top: 8px;
     border: 6px solid #646fff;
     box-shadow: 0px 0px;
   }
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card {
+    width: 500px;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+  }
+
+  .card a {
+    text-decoration: none
+  }
+
+  .content {
+    padding: 1.1rem;
+    height: 150px;
+  }
+
+  .image {
+    object-fit: cover;
+    width: 100%;
+    height: 350px !important;
+    background-color: rgb(239, 205, 255);
+  }
+
+  .title {
+    color: #111827;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+
+  .desc {
+    margin-top: 0.5rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+.Like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px 10px 12px;
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #e8e8e8;
+    border-color: #ffe2e2;
+    border-style: solid;
+    border-width: 9px;
+    border-radius: 35px;
+    transition: transform 400ms cubic-bezier(.68,-0.55,.27,2.5);
+    border-color: 400ms ease-in-out;
+    background-color: 400ms ease-in-out;
+    word-spacing: -2px;
+  }
+
+  @keyframes movingBorders {
+    0% {
+      border-color: #fce4e4;
+    }
+
+    50% {
+      border-color: #ffd8d8;
+    }
+
+    90% {
+      border-color: #fce4e4;
+    }
+  }
+
+.Like:hover {
+    background-color: #eee;
+    transform: scale(105%);
+    animation: movingBorders 3s infinite;
+  }
+
+button svg {
+    fill: rgb(255, 110, 110);
+  }
+
+  @keyframes beatingHeart {
+    0% {
+      transform: scale(1);
+    }
+
+    15% {
+      transform: scale(1.15);
+    }
+
+    30% {
+      transform: scale(1);
+    }
+
+    45% {
+      transform: scale(1.15);
+    }
+
+    60% {
+      transform: scale(1);
+    }
+  }
+
+  button:hover svg {
+    transform: scale(105%);
+    border-color: #ffd8d8;
+    animation: beatingHeart 1.2s infinite;
+  }
+
+
 
