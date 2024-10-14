@@ -10,4 +10,9 @@ class AdminController extends Controller
     {
         return view('admindashboard');
     }
+
+    public function novopost()
+    {
+        return view('adminnovopost');
+    }
 }
