@@ -15,4 +15,9 @@ class AdminController extends Controller
     {
         return view('adminnovopost');
     }
+
+    public function meusposts()
+    {
+        return view('adminmeusposts');
+    }
 }

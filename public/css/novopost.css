@@ -107,10 +107,10 @@ body {
     font-size: 15px;
   }
 
-  .btn {
+  .btn1 {
     padding: 15px;
     margin: 25px 0px;
-    width: 290px;
+    width: 250px;
     font-size: 15px;
     background: #310987;
     border-radius: 10px;
@@ -122,7 +122,7 @@ body {
     color: white;
   }
 
-  .btn:hover {
+  .btn1:hover {
     background-color: white;
     color: #1b0075;
     border: #1b0075 2px solid;

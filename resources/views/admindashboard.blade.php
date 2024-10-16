@@ -23,7 +23,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <button class="button">Home</button>
                 <a href="{{ route('NovoPost.dashboard')}}"><button class="button">Novo Post</button></a>
-                <button class="button">Meus Posts</button>
+                <a href="{{ route('MeusPosts.dashboard')}}"><button class="button">Meus Posts</button></a>
             </ul>
             </div>
         </div>
@@ -47,6 +47,7 @@
         </button>
       </div>
     </div>
+    </form>
     </div>
 </body>
 </html>
