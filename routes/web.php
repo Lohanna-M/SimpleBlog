@@ -26,6 +26,8 @@ Route::controller(AuthController::class,)->group(function() {
 Route::controller(AdminController::class,)->middleware('admin')->group(function(){
     Route::get('/admin/dashboard', 'index')->name('Admin.dashboard');
     Route::get('/admin/dashboard/novopost', 'novopost')->name('NovoPost.dashboard');
+    Route::post('/admin/dashboard/store', 'store')->name('Novosposts.dashboard');
+    Route::get('admin/dashboard/posts/{id}', 'show')->name('novoposts.show');
     Route::get('/admin/dashboard/meusposts', 'meusposts')->name('MeusPosts.dashboard');
 });
 

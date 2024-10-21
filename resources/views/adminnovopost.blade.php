@@ -30,29 +30,45 @@
         </div>
     </nav>
 </div>
-    <div class="container">
-        <div class="form_area">
-            <p class="title">Novo Post</p>
-            <form action="{{ route('register.save') }}" method="POST" enctype="multipart/form-data">
+    @if(session('success'))
+    <div class="alert alert-success">
+    {{ session('success') }}
+    </div>
+    @endif
+    <form action="{{ route('Novosposts.dashboard') }}" method="POST" enctype="multipart/form-data">
+        <div class="container">
+            <div class="form_area">
+                <p class="title">Novo Post</p>
                 @csrf
                 <div class="form_group">
-                    <label class="sub_title" for="title">Titulo</label>
-                    <input placeholder="title" class="form_style" type="text" id="title" name="title" required>
+                    <label class="sub_title" for="title">Título</label>
+                    <input placeholder="Título" class="form_style" type="text" id="title" name="title" required>
                 </div>
                 <div class="form_group">
-                    <label class="sub_title" for="content">Content</label>
-                    <input placeholder="Content" class="form_style" type="content" id="content" name="content" required>
+                    <label class="sub_title" for="content">Conteúdo</label>
+                    <input placeholder="Conteúdo" class="form_style" type="text" id="content" name="content" required>
+                </div>
+                <div class="form_group">
+                    <label class="sub_title" for="category">Categoria</label>
+                    <select class="form_style" id="category" name="category" required>
+                        <option value="" disabled selected>Escolha uma categoria</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Entretenimento">Entretenimento</option>
+                    </select>
                 </div>
                 <div class="form_group">
                     <div class="mb-3">
                         <label for="imageUpload" class="form-label">Upload Image</label>
-                        <input class="form-control" type="file" id="imageUpload" name="image" accept="image/*">
+                        <input class="form-control" type="file" id="image" name="image" accept="image/*">
                     </div>
                 </div>
                 <button class="btn1" type="submit">Adicionar Post</button>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
+
 </body>
 </html>
 

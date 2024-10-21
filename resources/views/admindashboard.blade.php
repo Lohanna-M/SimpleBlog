@@ -28,26 +28,27 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-    <div class="card">
-     <div class="image"></div>
-      <div class="content">
-        <a href="#">
-          <span class="title">
-           Titulo
-          </span>
-        </a>
-
-        <p class="desc">
-         Content
-        </p>
-
-        <button class="Like">
-            <svg height="32" width="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0H24V24H0z" fill="none"></path><path d="M16.5 3C19.538 3 22 5.5 22 9c0 7-7.5 11-10 12.5C9.5 20 2 16 2 9c0-3.5 2.5-6 5.5-6C9.36 3 11 4 12 5c1-1 2.64-2 4.5-2z"></path></svg>
-        </button>
-      </div>
-    </div>
-    </form>
+    <div class="container1">
+        @foreach($posts as $post)
+            <div class="card1">
+                <div class="image">
+                    @if(!empty($post->image))
+                        <img class="card-image" src="{{ asset('storage/' . $post->image) }}" alt="Imagem do Post" style="width: 100%; height: auto; border-radius: 8px;">
+                    @else
+                        <img class="card-image" src="caminho/para/imagem/padrao.jpg" alt="Imagem padrão">
+                    @endif
+                </div>
+                <div class="content">
+                    <a href="#">
+                        <span class="title">{{ $post->title }}</span>
+                    </a>
+                    <p class="category">
+                        Categoria: <span>{{ $post->category }}</span>
+                    </p>
+                    <p class="content1">{{ $post->content }}</p>
+                </div>
+            </div>
+        @endforeach
     </div>
 </body>
 </html>

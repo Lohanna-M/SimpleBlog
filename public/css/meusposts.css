@@ -45,9 +45,36 @@ body {
     font-size: 19px;
   }
 
-  .button:active {
+.button:active {
     position: relative;
     top: 8px;
     border: 6px solid #646fff;
     box-shadow: 0px 0px;
   }
+
+  .card .card-footer {
+    background-color: #eacaf1; /* Substitua pela cor desejada */
+    padding: 10px;
+    text-align: center;
+}
+
+.btn1 {
+    padding: 5px;
+    margin: 5px 5px 5px 5px;
+    width: 50px;
+    background: #310987;
+    border-radius: 10px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    font-style:normal;
+    box-shadow: 3px 3px 0px 0px #1b0075;
+    color: white;
+    text-decoration: none;
+  }
+
+.btn1:hover {
+    background-color: white;
+    color: #1b0075;
+    border: #1b0075 1px solid;
+  }
+

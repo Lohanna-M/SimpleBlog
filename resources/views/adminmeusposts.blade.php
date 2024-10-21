@@ -29,7 +29,22 @@
         </div>
     </nav>
 
-
-    
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="/" class="card-img-top" alt="Imagem do Post">
+                    <div class="card-body">
+                        <h5 class="card-title">aaa</h5>
+                        <p class="card-text">aaa</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/" class="btn1">Ver Mais</a>
+                        <a href="/" class="btn1">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

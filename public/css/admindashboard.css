@@ -47,21 +47,26 @@
     box-shadow: 0px 0px;
   }
 
-.container{
+  .container1 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    padding: 20px;
 }
 
-.card {
-    width: 500px;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    border: 1px solid transparent;
-  }
+.card1 {
+    background-color: #fff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
 
   .card a {
     text-decoration: none
@@ -70,13 +75,17 @@
   .content {
     padding: 1.1rem;
     height: 170px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+    font-style: normal;
   }
 
-  .image {
-    object-fit: cover;
-    width: 100%;
-    height: 350px !important;
-    background-color: rgb(239, 205, 255);
+  .card-image {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
   }
 
   .title {
@@ -84,82 +93,120 @@
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 600;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
   }
 
-  .desc {
+.desc {
     margin-top: 10px;
     color: #6B7280;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
 
-.Like {
-    padding: 5px 5px 5px 5px;
-    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: #e8e8e8;
-    border-color: #646fff;
-    border-style: solid;
-    border-width: 8px;
-    border-radius: 35px;
-    transition: transform 400ms cubic-bezier(.68,-0.55,.27,2.5);
-    border-color: 400ms ease-in-out;
-    background-color: 400ms ease-in-out;
-    word-spacing: -2px;
-    margin-top: 10px;
-
+  .comment-react {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    scale: 0.8;
+    width: 70px;
+}
+  .comment-react button {
+    width: 70px;
+    height: 35px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 0;
+    outline: none;
   }
 
-  @keyframes movingBorders {
+  .comment-react button:after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    background: linear-gradient(to bottom right, #3598f5, blue);
+    border-radius: 50%;
+    z-index: 0;
+    transform: scale(0);
+    filter: blur(10px);
+  }
+
+  .comment-react button svg {
+    position: relative;
+    z-index: 9;
+  }
+
+  .comment-react button:hover:after {
+    animation: ripple 0.6s ease-in-out infinite;
+  }
+
+  .comment-react button:hover svg {
+    animation: ripple2 1s ease-in-out infinite;
+    fill: #f5356e;
+  }
+
+  .comment-react button:hover svg path {
+    stroke: #f5356e;
+    fill: #f5356e;
+  }
+
+  .comment-react hr {
+    width: 80%;
+    height: 1px;
+    background-color: #dfe1e6;
+    margin: auto;
+    border: 0;
+  }
+
+  .comment-react span {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 600;
+    color: #707277;
+    padding-right: 10px;
+    text-align: center;
+  }
+
+  @keyframes ripple {
     0% {
-      border-color: #310987;
+      transform: scale(0);
+      opacity: 1;
     }
 
-    50% {
-      border-color: #310987;
-    }
-
-    90% {
-      border-color: #310987;
+    100% {
+      transform: scale(1.3);
+      opacity: 0.3;
     }
   }
 
-.Like:hover {
-    background-color: #eee;
-    transform: scale(105%);
-    animation: movingBorders 3s infinite;
-  }
-
-button svg {
-    fill: #1b0075;
-  }
-
-  @keyframes beatingHeart {
+  @keyframes ripple2 {
     0% {
-      transform: scale(1);
+      transform: scale(0);
+      opacity: 1;
     }
 
-    15% {
-      transform: scale(1.15);
-    }
-
-    30% {
-      transform: scale(1);
-    }
-
-    45% {
-      transform: scale(1.15);
-    }
-
-    60% {
-      transform: scale(1);
+    100% {
+      transform: scale(1.6);
+      opacity: 1;
     }
   }
 
-  button:hover svg {
-    transform: scale(105%);
-    border-color: #646fff;
-    animation: beatingHeart 1.2s infinite;
-  }
 
 
 
