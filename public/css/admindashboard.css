@@ -1,4 +1,3 @@
-
 .navbar {
     background-color: #1b0075;
     padding: 1rem 2rem;
@@ -49,128 +48,137 @@
 
   .container1 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    margin: 10px auto;
+    max-width: 900px;
 }
 
 .card1 {
-    background-color: #fff; 
+    background-color: #1b0075; /* Cor de fundo do card */
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin: 10px;
-    overflow: hidden;
+    box-shadow: 0 0 10px rgba(91, 46, 145, 0.5); /* Sombra suave com roxo profundo */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
+.card1 .image {
+    width: 100%;
+    max-width: 260px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
 
-  .card a {
-    text-decoration: none
-  }
+.card1 .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #f0f0f0; /* Cor padrão para a imagem */
+}
 
-  .content {
-    padding: 1.1rem;
-    height: 170px;
+.content {
+    width: 100%;
+    text-align: left;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 200;
     font-style: normal;
-  }
+}
 
-  .card-image {
-        width: 100%;
-        height: auto;
-        max-height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-  }
+.content .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white; /* Título na cor roxa profunda */
+}
 
-  .title {
-    color: #111827;
+.content .category,
+.content .content1 {
+    margin-top: 10px;
+    color: white; /* Texto de categoria na cor roxa média */
+}
+
+.title1 {
+    color: white;
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 600;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-
-.desc {
-    margin-top: 10px;
-    color: #6B7280;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
-  .comment-react {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    padding: 2px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    scale: 0.8;
-    width: 70px;
+    text-decoration: none;
 }
-  .comment-react button {
-    width: 70px;
+
+.comment-react {
+    margin: -10px;
+    display: flex;
+    padding: 5px;
+    background-color: #eacaf1; /* Fundo do container do botão de like */
+    border-radius: 5px;
+    scale: 0.7;
+    width: 80px;
+}
+
+.comment-react button {
+    width: 35px;
     height: 35px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    background-color: transparent; /* Fundo transparente para o botão */
     border: 0;
     outline: none;
-  }
+}
 
-  .comment-react button:after {
+.comment-react button:after {
     content: "";
     width: 40px;
     height: 40px;
     position: absolute;
     left: -3px;
     top: -3px;
-    background: linear-gradient(to bottom right, #3598f5, blue);
+    background: linear-gradient(to bottom right, #A569BD, #6C3483); /* Gradiente para efeito de clique */
     border-radius: 50%;
     z-index: 0;
     transform: scale(0);
     filter: blur(10px);
-  }
+}
 
-  .comment-react button svg {
+.comment-react button svg {
     position: relative;
     z-index: 9;
-  }
+}
 
-  .comment-react button:hover:after {
+.comment-react button:hover:after {
     animation: ripple 0.6s ease-in-out infinite;
-  }
+}
 
-  .comment-react button:hover svg {
+.comment-react button:hover svg {
     animation: ripple2 1s ease-in-out infinite;
-    fill: #f5356e;
-  }
+    fill: #1b0075; /* Cor do SVG ao passar o mouse */
+}
 
-  .comment-react button:hover svg path {
-    stroke: #f5356e;
-    fill: #f5356e;
-  }
+.comment-react button:hover svg path {
+    stroke: #1b0075;
+    fill: #1b0075;
+}
 
-  .comment-react hr {
+.comment-react hr {
     width: 80%;
     height: 1px;
     background-color: #dfe1e6;
     margin: auto;
     border: 0;
-  }
+}
 
-  .comment-react span {
+.comment-react span {
     height: 35px;
     display: flex;
     align-items: center;
@@ -178,35 +186,31 @@
     margin: auto;
     font-size: 20px;
     font-weight: 600;
-    color: #707277;
+    color: #1b0075; /* Cor do texto na contagem de likes */
     padding-right: 10px;
     text-align: center;
-  }
+}
 
-  @keyframes ripple {
+@keyframes ripple {
     0% {
-      transform: scale(0);
-      opacity: 1;
+        transform: scale(0);
+        opacity: 1;
     }
-
     100% {
-      transform: scale(1.3);
-      opacity: 0.3;
+        transform: scale(1.3);
+        opacity: 0.3;
     }
-  }
+}
 
-  @keyframes ripple2 {
+@keyframes ripple2 {
     0% {
-      transform: scale(0);
-      opacity: 1;
+        transform: scale(0);
+        opacity: 1;
     }
-
     100% {
-      transform: scale(1.6);
-      opacity: 1;
+        transform: scale(1.6);
+        opacity: 1;
     }
-  }
-
-
+}
 
 

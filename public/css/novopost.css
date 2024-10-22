@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: 0, auto;
   }
 
   .navbar {
@@ -9,6 +9,7 @@ body {
     height: 100px;
     width: 100%;
     position: fixed;
+    margin-bottom: 20px;
   }
 
 .title-navbar {
@@ -70,15 +71,24 @@ body {
     border: 2px solid #310987;
     border-radius: 20px;
     box-shadow: 3px 4px 0px 1px #1b0075;
-    padding: 50px;
     font-family: "Bebas Neue", sans-serif;
   }
+
+  .form-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
   .title {
     color: #1b0075;
     font-weight: 500;
     font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
 
   .sub_title {
