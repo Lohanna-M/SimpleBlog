@@ -84,6 +84,13 @@
     background-color: #f0f0f0; /* Cor padrão para a imagem */
 }
 
+.content1 {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: white;
+}
+
 .content {
     width: 100%;
     text-align: left;
@@ -95,31 +102,38 @@
 .content .title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white; /* Título na cor roxa profunda */
+    color: white;
 }
 
 .content .category,
 .content .content1 {
     margin-top: 10px;
-    color: white; /* Texto de categoria na cor roxa média */
 }
 
-.title1 {
+.title1 span {
+    font-size: 28px;
+    font-weight: bold;
     color: white;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    font-weight: 600;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.category {
+    background-color: #e8daef;
+    color: #1b0075;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .comment-react {
     margin: -10px;
     display: flex;
     padding: 5px;
-    background-color: #eacaf1; /* Fundo do container do botão de like */
+    background-color: #eacaf1;
     border-radius: 5px;
     scale: 0.7;
     width: 80px;
@@ -132,7 +146,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent; /* Fundo transparente para o botão */
+    background-color: transparent;
     border: 0;
     outline: none;
 }
@@ -144,7 +158,7 @@
     position: absolute;
     left: -3px;
     top: -3px;
-    background: linear-gradient(to bottom right, #A569BD, #6C3483); /* Gradiente para efeito de clique */
+    background: linear-gradient(to bottom right, #A569BD, #6C3483);
     border-radius: 50%;
     z-index: 0;
     transform: scale(0);
@@ -186,7 +200,7 @@
     margin: auto;
     font-size: 20px;
     font-weight: 600;
-    color: #1b0075; /* Cor do texto na contagem de likes */
+    color: #1b0075;
     padding-right: 10px;
     text-align: center;
 }

@@ -52,11 +52,12 @@ class AdminController extends Controller
     public function show($id)
 {
     $post = Post::findOrFail($id);
-    return view('adminnovopost', compact('post')); 
+    return view('adminnovopost', compact('post'));
 }
 
     public function meusposts()
     {
-        return view('adminmeusposts');
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('adminmeusposts', compact('posts'));
     }
 }

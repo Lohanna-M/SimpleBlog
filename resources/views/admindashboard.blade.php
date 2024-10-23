@@ -65,7 +65,7 @@
                     </svg>
                   </button>
 
-                  <span>14</span>
+                  <span>{{$post->likes}}</span>
                 </div>
                 </div>
             </div>

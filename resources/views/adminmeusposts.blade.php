@@ -29,14 +29,14 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="/" class="card-img-top" alt="Imagem do Post">
+    <div class="container mt-4 d-flex justify-content-center">
+        <div class="row justify-content-center">
+            @foreach ($posts as $post)
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">aaa</h5>
-                        <p class="card-text">aaa</p>
+                        <h5 class="card-title">{{ $post->title }}</h5>
+                        <p class="card-text">{{ \Illuminate\Support\Str::limit($post->content, 100) }}</p> <!-- Limita o conteúdo a 100 caracteres -->
                     </div>
                     <div class="card-footer">
                         <a href="/" class="btn1">Ver Mais</a>
@@ -44,6 +44,7 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </body>
