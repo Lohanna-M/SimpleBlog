@@ -58,7 +58,7 @@ body {
     border: 2px solid #310987;
     border-radius: 20px;
     box-shadow: 3px 4px 0px 1px #1b0075;
-    width: 18rem; 
+    width: 18rem;
     margin: 0 auto;
 }
 
@@ -77,9 +77,9 @@ body {
 }
 
 .btn1 {
-    padding: 5px;
-    margin: 5px;
-    width: 50px;
+    padding: 8px;
+    margin: 8px;
+    width: 80px;
     background: #310987;
     border-radius: 10px;
     font-family: "Bebas Neue", sans-serif;

@@ -28,7 +28,11 @@
             </div>
         </div>
     </nav>
-
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="container mt-4 d-flex justify-content-center">
         <div class="row justify-content-center">
             @foreach ($posts as $post)
@@ -39,8 +43,7 @@
                         <p class="card-text">{{ \Illuminate\Support\Str::limit($post->content, 100) }}</p> <!-- Limita o conteúdo a 100 caracteres -->
                     </div>
                     <div class="card-footer">
-                        <a href="/" class="btn1">Ver Mais</a>
-                        <a href="/" class="btn1">Editar</a>
+                        <a href="{{ route('meusposts.edit', $post->id) }}" class="btn1">Editar</a>
                     </div>
                 </div>
             </div>
