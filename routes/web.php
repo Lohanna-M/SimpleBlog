@@ -31,6 +31,7 @@ Route::controller(AdminController::class,)->middleware('admin')->group(function(
     Route::get('/admin/dashboard/meusposts', 'meusposts')->name('MeusPosts.dashboard');
     Route::get('/admin/dashboard/meusposts/{id}/edit', 'edit')->name('meusposts.edit');
     Route::put('/admin/dashboard/meusposts/{id}', 'update')->name('meusposts.update');
+    Route::post('/posts/{id}/like','likePost')->name('posts.like');
 });
 
 Route::controller(UserController::class,)->middleware('user')->group(function(){

@@ -10,7 +10,6 @@ class AdminController extends Controller
 {
     public function index()
     {
-
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('admindashboard', compact('posts'));
     }
@@ -50,6 +49,31 @@ class AdminController extends Controller
         return redirect()->route('Admin.dashboard', ['id' => $post->id])->with(['success' => 'Post criado com sucesso!', 'post' => $post]);
     }
 
+    public function likePost($id)
+    {
+    $post = Post::findOrFail($id);
+    $user = auth()->user();
+
+    // Verifique se o usuário já deu like no post
+    $likedPosts = session()->get('liked_posts', []);
+
+    if (in_array($id, $likedPosts)) {
+        // Se o usuário já deu like, remover o like
+        $post->likes = max(0, $post->likes - 1);
+        $likedPosts = array_diff($likedPosts, [$id]);
+    } else {
+        // Se o usuário ainda não deu like, adicionar like
+        $post->likes++;
+        $likedPosts[] = $id;
+    }
+
+    // Salve os likes atualizados
+    $post->save();
+    session()->put('liked_posts', $likedPosts);
+
+    return back()->with('success', 'Sua reação foi registrada.');
+    }
+
     public function show($id)
     {
         $post = Post::findOrFail($id);
@@ -71,6 +95,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
+
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
@@ -78,21 +103,29 @@ class AdminController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        // Atualize os campos do post
         $post->title = $request->input('title');
         $post->content = $request->input('content');
         $post->category = $request->input('category');
 
         if ($request->hasFile('image')) {
+            // Apague a imagem antiga, se existir
             if ($post->image) {
-                Storage::delete('public/storage/' . $post->image);
+                Storage::delete('public/' . $post->image);
             }
 
+            // Armazene a nova imagem e atualize o campo
             $path = $request->file('image')->store('images', 'public');
             $post->image = $path;
+        } else {
+            // Mantenha a imagem atual se nenhuma nova imagem for enviada
+            $post->image = $post->image;
         }
 
+        // Salve o post atualizado sem alterar a imagem se não foi enviada
         $post->save();
 
-        return redirect()->route('MeusPosts.dashboard', $post->id)->with('success', 'Post atualizado com sucesso!');
+        return redirect()->route('Admin.dashboard', ['id' => $post->id])->with('success', 'Post atualizado com sucesso!');
     }
+
 }

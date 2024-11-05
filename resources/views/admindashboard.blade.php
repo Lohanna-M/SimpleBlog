@@ -33,7 +33,7 @@
             <div class="card1">
                 <div class="image">
                     @if(!empty($post->image))
-                        <img class="card-image" src="{{ asset('storage/' . $post->image) }}" alt="Imagem do Post" style="width: 100%; height: auto; border-radius: 8px;">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="Imagem do Post" style="width: 100%; height: auto; border-radius: 8px;">
                     @else
                         <img class="card-image" src="caminho/para/imagem/padrao.jpg" alt="Imagem padrão">
                     @endif
@@ -47,26 +47,11 @@
                     </p>
                     <p class="content1">{{ $post->content }}</p>
                     <div class="comment-react">
-                  <button>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M19.4626 3.99415C16.7809 2.34923 14.4404 3.01211 13.0344 4.06801C12.4578 4.50096 12.1696 4.71743 12 4.71743C11.8304 4.71743 11.5422 4.50096 10.9656 4.06801C9.55962 3.01211 7.21909 2.34923 4.53744 3.99415C1.01807 6.15294 0.221721 13.2749 8.33953 19.2834C9.88572 20.4278 10.6588 21 12 21C13.3412 21 14.1143 20.4278 15.6605 19.2834C23.7783 13.2749 22.9819 6.15294 19.4626 3.99415Z"
-                        stroke="#707277"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        fill="#707277"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <span>{{$post->likes}}</span>
-                </div>
+                        <button class="likebtn">
+                            <svg class="icon" width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="heart" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path></svg>
+                            <span>{{ $post->likes }}</span>
+                           </button>
+                    </div>
                 </div>
             </div>
         @endforeach
