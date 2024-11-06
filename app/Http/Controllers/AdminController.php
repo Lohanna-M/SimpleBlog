@@ -51,27 +51,30 @@ class AdminController extends Controller
 
     public function likePost($id)
     {
-    $post = Post::findOrFail($id);
-    $user = auth()->user();
+        $post = Post::findOrFail($id);
+        $user = auth()->user();
 
-    // Verifique se o usuário já deu like no post
-    $likedPosts = session()->get('liked_posts', []);
+        // Recuperar a lista de posts que o usuário já curtiu na sessão
+        $likedPosts = session()->get('liked_posts', []);
 
-    if (in_array($id, $likedPosts)) {
-        // Se o usuário já deu like, remover o like
-        $post->likes = max(0, $post->likes - 1);
-        $likedPosts = array_diff($likedPosts, [$id]);
-    } else {
-        // Se o usuário ainda não deu like, adicionar like
-        $post->likes++;
-        $likedPosts[] = $id;
-    }
+        if (in_array($id, $likedPosts)) {
+            // Se o usuário já deu like, remover o like
+            $post->likes = max(0, $post->likes - 1);
+            $likedPosts = array_diff($likedPosts, [$id]); // Remover o ID do post da lista
+        } else {
+            // Se o usuário ainda não deu like, adicionar like
+            $post->likes++;
+            $likedPosts[] = $id; // Adicionar o ID do post à lista
+        }
 
-    // Salve os likes atualizados
-    $post->save();
-    session()->put('liked_posts', $likedPosts);
+        // Salve os likes atualizados no banco de dados
+        $post->save();
 
-    return back()->with('success', 'Sua reação foi registrada.');
+        // Atualize a sessão com a lista de posts atualizada
+        session()->put('liked_posts', $likedPosts);
+
+        // Redireciona de volta para a página do post
+        return back()->with('success', 'Sua reação foi registrada.');
     }
 
     public function show($id)
@@ -127,5 +130,4 @@ class AdminController extends Controller
 
         return redirect()->route('Admin.dashboard', ['id' => $post->id])->with('success', 'Post atualizado com sucesso!');
     }
-
 }
