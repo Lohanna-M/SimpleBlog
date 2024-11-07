@@ -112,22 +112,15 @@ class AdminController extends Controller
         $post->category = $request->input('category');
 
         if ($request->hasFile('image')) {
-            // Apague a imagem antiga, se existir
-            if ($post->image) {
-                Storage::delete('public/' . $post->image);
-            }
-
             // Armazene a nova imagem e atualize o campo
             $path = $request->file('image')->store('images', 'public');
             $post->image = $path;
-        } else {
-            // Mantenha a imagem atual se nenhuma nova imagem for enviada
-            $post->image = $post->image;
         }
 
-        // Salve o post atualizado sem alterar a imagem se não foi enviada
+        // Salve o post atualizado
         $post->save();
 
         return redirect()->route('Admin.dashboard', ['id' => $post->id])->with('success', 'Post atualizado com sucesso!');
     }
+    
 }
